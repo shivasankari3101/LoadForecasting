@@ -1,0 +1,56 @@
+:root{
+    --darker: #325f25;
+    --dark: #609966;
+    --light: #EDF1D6;
+    --lighter: #FFFFFF;
+}
+
+body{
+    margin: 0;
+}
+
+nav{
+    background-color: var(--dark);
+    color: var(--lighter);
+    padding: 1%;
+    text-align: center;
+}
+
+button{
+    background-color: var(--dark);
+    color: var(--lighter);
+    padding: 1%;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    text-align: center;
+    margin: 3%;
+    cursor: pointer;
+}
+
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image{
+    width: 80%;
+}
+
+.charts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.node {
+    width: 90%;
+    height: 500px;
+    display: flex;
+    color: #325f25;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

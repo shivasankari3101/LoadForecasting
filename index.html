@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <h1>EDGE-ENABLED LOAD FORECASTING IN SMART GRID</h1>
+  </nav>
+
+  <button id="authorize_button" onclick="handleAuthClick()">Authorize permissions to access the data from storage</button>
+
+  <div id="content" style="white-space: pre-wrap;">
+    <img class="image" src="./images/architecture.svg" alt="Architecture">
+  </div>
+
+  <div class="charts">
+    <div class="node">
+      <canvas id="nextDay"></canvas>
+    </div><br><br>
+    <div class="node">
+      <canvas id="nextWeek"></canvas>
+    </div><br><br>
+    <div class="node">
+      <canvas id="nextMonth"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <script src="charts.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+  <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+  
+</body>
+</html>
