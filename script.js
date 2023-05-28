@@ -1,17 +1,53 @@
-const nodes = [];
+const files = ["nextDayPredictions.json", "nextWeekPredictions.json", "nextMonthPredictions.json"];
+const nodes = [
+    {
+        name: "Node1",
+        ip: "192.168.0.104:5500"
+    },
+    {
+        name: "Node2",
+        ip: "192.168.0.104:5500"
+    },
+    {
+        name: "Node3",
+        ip: "192.168.0.104:5500"
+    },
+];
+const results = [];
 
-const fileNames = ["nextDayPredictions", "nextWeekPredictions", "nextMonthPredictions"];
-const fileIds = [
-    {
-        node: "node1",
-        predictions : ["1wE4lOOilCgrNgzow7hXcZv7bh0lUAlGK", "1HRdXG2LXpoZ_R4P6BhmdKsG6uC-gxww7","1qs7HIQPmec_t0GnuVZdLMqSYNtrTppaL"]
-    },
-    {
-        node: "node2",
-        predictions : ["1Q1HDQW9Ws-e4cAsB0j86E8wf_lzN0SHv", "1-1Yfn2CSsnKBcAHoTvUZSPQhiVvacm01","1JnNnbtXbg8xJJ1cfg7fsyx3tu4nicZTt"]
-    },
-    {
-        node: "node3",
-        predictions : ["1XKBsvQPMBMYvVU-r6lzdwhVEZNpQkpyL", "1kAK81TtV7Dvm6qMI1OlCMUtjRM34NuvD","1X_u_GXRsCBBLsuGx35UjfNKPkXjtv3LZ"]
+
+
+
+    async function generateResults(){
+        for(const node of nodes){
+            const ipAddress = node.ip;
+            const obj = {};
+            obj.name = node.name;
+            obj.node = node.ip;
+            for(const file of files){        
+                const fileURL = `http://${ipAddress}/${node.name}/Predictions/${file}`; 
+                const data = await readFile(fileURL);
+                Object.assign(obj, data);
+            }
+            results.push(obj); 
+        }
+
+        document.querySelector("#chartSelector").style.display = "block";
+        displayChart();
     }
-]
+
+    async function readFile(fileURL){   
+        try{
+            const response = await fetch(fileURL);
+            const data= await response.json();
+            const jsonData = JSON.parse(data);
+            return jsonData;
+        }catch(error){
+            console.log(`Error in ${node.name}:`, error);
+        }
+    }
+
+    generateResults();
+
+
+

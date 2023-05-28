@@ -38,6 +38,16 @@ button{
     width: 80%;
 }
 
+#chartSelector{
+    display:none;
+    margin: 3% auto;
+    outline: 0;
+    border: 0;
+    padding: 1%;
+    background-color: var(--light);
+    border-radius: 10px;
+}
+
 .charts{
     display: flex;
     flex-direction: column;
@@ -53,4 +63,36 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.formContainer, .formContainer>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer{
+    min-height: 100vh;
+}
+
+.formContainer>form{
+    padding: 2%;
+    background-color: var(--light);
+    color: var(--darker);
+}
+
+.formContainer>form input{
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--darker);
+    outline: 0;
+    margin: 3%;
+    padding: 1%;
+    background-color: var(--light);
+    font-size: 1rem;
+}
+
+.formContainer>form button{
+    padding: 3%;
 }

@@ -11,30 +11,34 @@
     <h1>EDGE-ENABLED LOAD FORECASTING IN SMART GRID</h1>
   </nav>
 
-  <button id="authorize_button" onclick="handleAuthClick()">Authorize permissions to access the data from storage</button>
-
   <div id="content" style="white-space: pre-wrap;">
     <img class="image" src="./images/architecture.svg" alt="Architecture">
   </div>
 
+  <select name="charts" id="chartSelector" onchange="displayChart()">
+    <option value="nextDay">Next day</option>
+    <option value="nextWeek">Next Week</option>
+    <option value="nextMonth">Next Month</option>
+  </select>
+
   <div class="charts">
     <div class="node">
-      <canvas id="nextDay"></canvas>
-    </div><br><br>
-    <div class="node">
-      <canvas id="nextWeek"></canvas>
-    </div><br><br>
-    <div class="node">
-      <canvas id="nextMonth"></canvas>
+      <canvas id="chart"></canvas>
     </div>
+  </div>
+
+
+  <div class="formContainer">
+    <form action="">
+      <h1>Distribution for next day</h1>
+      <input type="text" name="supply" id="supply" placeholder="Enter the supply for the next day">
+      <button type="submit">Show the distribution</button>
+    </form>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
   <script src="charts.js"></script>
   <script src="script.js"></script>
-  <script src="auth.js"></script>
-  <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
-  <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
   
 </body>
 </html>
